@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rlSignPage"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".auth.SignPageActivity"
+    tools:showIn="@layout/activity_sign_page">
+
+    <LinearLayout
+        android:id="@+id/llSelection"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/upper_bg"
+        android:paddingBottom="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSigninSelection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center|bottom"
+            android:paddingBottom="8dp"
+            android:text="Sign In"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="24sp"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnSignupSelection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center|bottom"
+            android:paddingBottom="8dp"
+            android:text="Sign Up"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textSize="24sp"
+            android:textColor="@color/ash" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llSelection"
+        android:layout_centerHorizontal="true"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/rlSignIn"
+            android:layout_width="296dp"
+            android:layout_height="212dp"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="44dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cdView"
+                android:layout_width="276dp"
+                android:layout_height="148dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_person_36dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etUserEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Username or Email"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_pass_36dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etUserPassword"
+                            android:inputType="textPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Password"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvSignInButton"
+                android:layout_width="148dp"
+                android:layout_height="36dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="38dp"
+                app:cardBackgroundColor="@color/muv_purple"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Sign in"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:text="Don't have an Account? Don't Worry!"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvSignUpSelection"
+            android:layout_width="148dp"
+            android:layout_height="36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="30dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Sign Up Now"
+                    android:textColor="@color/muv_purple"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llSelection"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rlSignUp"
+            android:layout_width="296dp"
+            android:layout_height="348dp"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="28dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cdSignUpView"
+                android:layout_width="276dp"
+                android:layout_height="312dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_person_36dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Name"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_email_32dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Email"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_pass_36dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_phone_32dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Mobile"
+                            android:text="880"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_calender_32dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserDateOfBirth"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Date of Birth"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_bkas_32dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserBkash"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Bkash Transaction Id"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_referral_32dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserReferral"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="Referral Id"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvSignUpButton"
+                android:layout_width="148dp"
+                android:layout_height="36dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/muv_purple"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Sign up"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

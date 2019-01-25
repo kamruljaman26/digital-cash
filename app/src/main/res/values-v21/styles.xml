@@ -3,6 +3,24 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:editTextColor">@color/translucent_black</item>
+        <item name="android:textColorSecondary">@color/translucent_black</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:editTextColor">@color/translucent_black</item>
+        <item name="android:textColorSecondary">@color/translucent_black</item>
+
+
     </style>
 </resources>

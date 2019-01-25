@@ -24,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
+import com.xyz.digital_cash.dcash.cash_out.CashOutActivity;
 import com.xyz.digital_cash.dcash.earn.IncomeFactory;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
 import com.xyz.digital_cash.dcash.extras.LogMe;
@@ -288,6 +289,9 @@ public class DCASHMainActivity extends BaseActivity
        }else if(id == R.id.nav_profile){
 
            Intent in =new Intent(this,UserProfileActivity.class);
+           startActivity(in);
+       }else if(id == R.id.nav_cashout){
+           Intent in =new Intent(this,CashOutActivity.class);
            startActivity(in);
        }
 

@@ -1,9 +1,11 @@
 package com.xyz.digital_cash.dcash.earn;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -56,7 +58,7 @@ import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER
 
 public class LookEarnActivity extends BaseActivity {
 
-    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial, btnVungleInterstial,btnFalconInterstial;
+    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial, btnVungleInterstial,btnFalconInterstial,btnTargetInterstial;
     private InterstitialAd mInterstitialAdmobAd;
     private Toolbar toolbar_video_wall;
     UserPref userPref;
@@ -73,6 +75,10 @@ public class LookEarnActivity extends BaseActivity {
     private String msg = "";
     private String TAG = LookEarnActivity.class.getSimpleName();
     private TextView tvLookEarnEBalance;
+
+    //Target
+    private com.my.target.ads.InterstitialAd targetAd;
+    private static final int TARGET_SLOT_ID = 359052;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -324,6 +330,55 @@ public class LookEarnActivity extends BaseActivity {
             }
         });
 
+
+        //Target
+
+        btnTargetInterstial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                showProgressDialog();
+
+                targetAd.setListener(new com.my.target.ads.InterstitialAd.InterstitialAdListener() {
+                    @Override
+                    public void onLoad( com.my.target.ads.InterstitialAd interstitialAd) {
+
+                        hideProgressDialog();
+                        LogMe.d("target","Loaded");
+                    }
+
+                    @Override
+                    public void onNoAd( String s, com.my.target.ads.InterstitialAd interstitialAd) {
+
+                        hideProgressDialog();
+                        LogMe.d("target","NO Ad:"+s);
+                    }
+
+                    @Override
+                    public void onClick( com.my.target.ads.InterstitialAd interstitialAd) {
+
+                    }
+
+                    @Override
+                    public void onDismiss( com.my.target.ads.InterstitialAd interstitialAd) {
+                        LogMe.d("target","dissmissed");
+                    }
+
+                    @Override
+                    public void onVideoCompleted( com.my.target.ads.InterstitialAd interstitialAd) {
+                        LogMe.d("target","onCompleted");
+                    }
+
+                    @Override
+                    public void onDisplay( com.my.target.ads.InterstitialAd interstitialAd) {
+                        LogMe.d("target","OnDisplay");
+                    }
+                });
+
+                targetAd.load();
+            }
+        });
+
     }
 
     private void initializeView() {
@@ -360,6 +415,10 @@ public class LookEarnActivity extends BaseActivity {
 
         //Falcon
         btnFalconInterstial = findViewById(R.id.btnFalconInterstial);
+
+        //Target
+        btnTargetInterstial = findViewById(R.id.btnTargetInterstial);
+        targetAd = new com.my.target.ads.InterstitialAd(TARGET_SLOT_ID, this);
     }
 
     @Override

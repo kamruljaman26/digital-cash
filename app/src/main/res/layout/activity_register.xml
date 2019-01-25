@@ -48,7 +48,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/textV1iew4"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:gravity="center"
@@ -57,7 +57,7 @@
                         android:textColor="@color/white" />
 
                     <EditText
-                        android:id="@+id/etRName"
+                        android:id="@+id/et1RName"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -71,7 +71,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etREmail"
+                        android:id="@+id/etRE1mail"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -85,7 +85,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etRPass"
+                        android:id="@+id/etRP1ass"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -99,7 +99,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etRPhone"
+                        android:id="@+id/etRPh1one"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -114,7 +114,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etRDOB"
+                        android:id="@+id/etR1DOB"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -128,7 +128,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etRCity"
+                        android:id="@+id/etRC1ity"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -142,7 +142,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etRBikash"
+                        android:id="@+id/etR1Bikash"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -156,7 +156,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <EditText
-                        android:id="@+id/etRReferral"
+                        android:id="@+id/etR1Referral"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
@@ -170,7 +170,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                     <Button
-                        android:id="@+id/btnSignUp"
+                        android:id="@+id/btnSig1nUp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

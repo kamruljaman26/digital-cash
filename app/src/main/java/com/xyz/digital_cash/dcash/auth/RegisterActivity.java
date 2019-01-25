@@ -95,17 +95,17 @@ public class RegisterActivity extends BaseActivity {
         userPref = new UserPref(this);
         myCalender = Calendar.getInstance();
 
-        etName = findViewById(R.id.etRName);
-        etEmail = findViewById(R.id.etREmail);
-        etPass = findViewById(R.id.etRPass);
-        etPhone = findViewById(R.id.etRPhone);
-        etDOB = findViewById(R.id.etRDOB);
+        etName = findViewById(R.id.et1RName);
+        etEmail = findViewById(R.id.etRE1mail);
+        etPass = findViewById(R.id.etRP1ass);
+        etPhone = findViewById(R.id.etRPh1one);
+        etDOB = findViewById(R.id.etR1DOB);
         etDOB.setFocusable(false);
-        etCity = findViewById(R.id.etRCity);
-        etBikash = findViewById(R.id.etRBikash);
-        etRefferal = findViewById(R.id.etRReferral);
+        etCity = findViewById(R.id.etR1DOB);
+        etBikash = findViewById(R.id.etR1Bikash);
+        etRefferal = findViewById(R.id.etR1Referral);
 
-        btnRegister =findViewById(R.id.btnSignUp);
+        btnRegister =findViewById(R.id.btnSig1nUp);
 
     }
 

@@ -70,17 +70,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         parentLayout = findViewById(android.R.id.content);
         userPref = new UserPref(LoginActivity.this);
 
-        btnResetPass = findViewById(R.id.btnResetPass);
+        btnResetPass = findViewById(R.id.btnRe1setPass);
         btnResetPass.setOnClickListener(this);
 
-        btnRegister = findViewById(R.id.btnRegister);
+        btnRegister = findViewById(R.id.btnReg1ister);
         btnRegister.setOnClickListener(this);
 
-        btnLogin =findViewById(R.id.btnLogin);
+        btnLogin =findViewById(R.id.btnLogi1n);
         btnLogin.setOnClickListener(this);
 
-        etLoginMail = findViewById(R.id.etLoginMail);
-        etLoginPass = findViewById(R.id.etLoginPass);
+        etLoginMail = findViewById(R.id.etLoginM1ail);
+        etLoginPass = findViewById(R.id.etLoginP1ass);
     }
 
     @Override

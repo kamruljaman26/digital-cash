@@ -22,4 +22,21 @@
     </string>
     <string name="title_activity_vungle_new">VungleNewActivity</string>
     <string name="title_activity_falcon_ad">FalconAdActivity</string>
+    <string name="title_activity_sign_page">SignPageActivity</string>
+    <string name="title_activity_cash_out">CashOutActivity</string>
+    <string name="tab_text_1">New Request</string>
+    <string name="tab_text_2">All Request</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="bkash">BKash</string>
+    <string name="bkash_detail">Cash out with your Digital Cash money with Bkash</string>
+    <string name="hand_cash">Manual Cash Out</string>
+    <string name="handcash_detail">Get your earned money direct to your hand</string>
+    <string name="m_cash">MCash</string>
+    <string name="rocket">DBBL Rocket</string>
+    <string name="mcash_detail">Make payment easier and faster at your convenience</string>
+    <string name="rocket_detail">Cash out with your Digital Cash money with DBBL Rocket</string>
+    <string name="sure_cash">SureCash</string>
+    <string name="surecash_detail">Get Money through your SureCash</string>
+    <string name="t_cash">T Cash</string>
+    <string name="tcash_detail">Get your money through your TCash account</string>
 </resources>

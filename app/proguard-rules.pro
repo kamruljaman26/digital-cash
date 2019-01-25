@@ -34,3 +34,7 @@ public *;
 public *;
 
 }
+-keep class com.my.target.** {*;}
+//
+
+
