@@ -40,6 +40,7 @@ dependencies {
     implementation 'com.google.ads.mediation:adcolony:3.3.5.1'
     implementation "com.applovin:applovin-sdk:+"
     implementation 'com.facebook.android:audience-network-sdk:5.+'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     // Recommended to add Google Play Services
     implementation 'com.google.android.gms:play-services-ads:16.1.1'
@@ -66,5 +67,6 @@ dependencies {
 
     //target
     implementation 'com.my.target:mytarget-sdk:5.3.+'
+
 
 }

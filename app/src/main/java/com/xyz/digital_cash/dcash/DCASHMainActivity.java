@@ -2,7 +2,10 @@ package com.xyz.digital_cash.dcash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -12,6 +15,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +30,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
+import com.xyz.digital_cash.dcash.banner.BannerSlider;
+import com.xyz.digital_cash.dcash.banner.BannerSliderAdapter;
 import com.xyz.digital_cash.dcash.cash_out.CashOutActivity;
 import com.xyz.digital_cash.dcash.earn.IncomeFactory;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
@@ -31,34 +39,64 @@ import com.xyz.digital_cash.dcash.extras.LogMe;
 import com.xyz.digital_cash.dcash.profile.UserProfileActivity;
 import com.xyz.digital_cash.dcash.shared_pref.UserPref;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER;
+import static com.xyz.digital_cash.dcash.api_config.APIConstants.General.BANNERIMAGESLIDE;
 
 public class DCASHMainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    Toolbar toolbar;
     private static final String TAG = "DCASHMainActivity";
     CardView cardEarnByIvite;
-
     UserPref userPref;
     CardView cardIncomeFactory,cardShopEarn,cardMyShop,cardMyNetwork,cardEarningPlan,cardExclusiveOffers,cardEarnMore;
     NavigationView navigationView;
-
     TextView tvUserNmae, tvuserEmail,tvUserReferral, tvUserAvailableBalance,tvUserEarningBalance;
+
+
+    //Slider for homePage
+    private static ViewPager mPagerImageSlider;
+    private static int currentBannerSlider = 0;
+    ArrayList<BannerSlider> bannerSliderArrayList = new ArrayList<BannerSlider>();
+    private LinearLayout llBannerDots;
+    private int dotscount;
+    private ImageView[] dots;
+    private Timer swipeTimer;
+    private Handler handler;
+    private Runnable Update;
+    private ProgressBar progressBarHomePageBannerSlider;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dcashmain);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        /*initializeView();
+        getProfileInfo();*/
+        getDrawerNavigation();
+        initializeView();
+        //getImageBannerSlider();
+        getImageBanner();
+        getImageBannerSlider();
 
+
+
+
+    }
+    private void getDrawerNavigation(){
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -67,14 +105,190 @@ public class DCASHMainActivity extends BaseActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
 
-        initializeView();
+    private void initializeView() {
 
-        getProfileInfo();
+        progressBarHomePageBannerSlider = findViewById(R.id.progressBarHomePageBannerSlider);
+
+        mPagerImageSlider =  findViewById(R.id.pager_image_slider_home_page);
+        llBannerDots = findViewById(R.id.llBannerDots);
+
 
     }
 
-    private void getProfileInfo() {
+    private void getImageBanner(){
+
+        BannerSlider bannerSlider = new BannerSlider();
+
+        for (int i=0;i<5;i++){
+
+            bannerSlider.setBannerID("1");
+
+            if(i ==0)
+            bannerSlider.setIm(getResources().getDrawable(R.drawable.test1));
+            if(i ==1)
+                bannerSlider.setIm(getResources().getDrawable(R.drawable.test2));
+            if(i ==2)
+                bannerSlider.setIm(getResources().getDrawable(R.drawable.test3));
+            if(i ==3)
+                bannerSlider.setIm(getResources().getDrawable(R.drawable.test4));
+            if(i ==4)
+                bannerSlider.setIm(getResources().getDrawable(R.drawable.test5));
+
+            bannerSlider.setGivenData("given_data");
+            bannerSlider.setContentID("content_id");
+
+            bannerSliderArrayList.add(bannerSlider);
+        }
+    }
+
+    private void getImageBannerSlider() {
+        StringRequest request = new StringRequest(Request.Method.GET, BANNERIMAGESLIDE, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                progressBarHomePageBannerSlider.setVisibility(View.GONE);
+                LogMe.e(TAG, " data Image Slider:: " + response);
+                JSONObject jObj = null;
+
+                try {
+
+                    jObj = new JSONObject(response);
+                    if (jObj.getString("success").equals("true")) {
+
+                        String apiData = jObj.getString("data");
+                        JSONObject jObj2 = new JSONObject(apiData);
+                        final JSONArray bannerArray = jObj2.getJSONArray("banner_images");
+                        try {
+                            for (int i = 0; i < bannerArray.length(); i++) {
+                                JSONObject json = null;
+
+                                json = bannerArray.getJSONObject(i);
+                                BannerSlider bannerSlider = new BannerSlider();
+                                bannerSlider.setBannerID(json.getString("banner_type_id"));
+                                bannerSlider.setFileName(json.getString("file_name"));
+                                bannerSlider.setGivenData(json.getString("given_data"));
+                                bannerSlider.setContentID(json.getString("content_id"));
+
+                                //bannerSliderArrayList.add(bannerSlider);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        mPagerImageSlider.setAdapter(new BannerSliderAdapter(DCASHMainActivity.this, bannerSliderArrayList));
+
+                        getBannerSliderDots();
+
+
+                        handler = new Handler();
+                        Update = new Runnable() {
+
+                            public void run() {
+                               /* if (currentBannerSlider == bannerSliderArrayList.size()) {
+                                    currentBannerSlider = 0;
+                                }
+                                mPagerImageSlider.setCurrentItem(currentBannerSlider++, true);
+                                handler.postDelayed(this,5000);*/
+
+                                int pos = currentBannerSlider++;
+                                LogMe.d("current::", pos + "--" + bannerArray.length());
+                                if (pos == bannerArray.length()) {
+                                    currentBannerSlider = 0;
+                                }
+
+                                mPagerImageSlider.setCurrentItem(pos);
+
+                            }
+                        };
+
+                        swipeTimer = new Timer();
+                        swipeTimer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+
+                                handler.post(Update);
+
+
+                            }
+                        }, 2000, 2000);
+
+
+
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                LogMe.d(TAG + " err:: ", error.toString());
+            }
+        }) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("authorization", "9qM55rm9lirQEbdNfqxUah3oNpboOcUP1yADLFz2Kc78mKPft7CemLbpZI49ASvsBWcACgjsVh2DEv0YutYlgjwezjF5dRM6XBxWtKIkDkzFh1HG3alJu4Ce2ydUBH8Z");
+
+                return params;
+            }
+
+        };
+
+        DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
+    }
+
+    private void getBannerSliderDots() {
+        dotscount = bannerSliderArrayList.size();
+        dots = new ImageView[dotscount];
+
+        for (int i = 0; i < dotscount; i++) {
+
+            dots[i] = new ImageView(this);
+            dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nonactive_dot));
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            params.setMargins(8, 0, 8, 0);
+
+            llBannerDots.addView(dots[i], params);
+
+        }
+
+        dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
+
+        mPagerImageSlider.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                for (int i = 0; i < dotscount; i++) {
+                    dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nonactive_dot));
+                }
+
+                dots[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+    }
+
+    /*private void getProfileInfo() {
 
             StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Auth.USER_PROFILE, new Response.Listener<String>() {
 
@@ -140,7 +354,7 @@ public class DCASHMainActivity extends BaseActivity
 
                             if (stCode == 500) {
 
-                                /*Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
+                                *//*Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
                                         .setAction("CLOSE", new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
@@ -148,7 +362,7 @@ public class DCASHMainActivity extends BaseActivity
                                             }
                                         })
                                         .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
-                                        .show();*/
+                                        .show();*//*
                             } else {
                                 LogMe.d("er::", res);
                                 JSONObject obj = new JSONObject(res);
@@ -227,7 +441,7 @@ public class DCASHMainActivity extends BaseActivity
         tvUserAvailableBalance = headerView.findViewById(R.id.tvUserCurrentBalance);
         tvUserEarningBalance = headerView.findViewById(R.id.tvUserEarningBalance);
 
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -267,21 +481,6 @@ public class DCASHMainActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-       /* if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-*/
-
        if(id == R.id.nav_logout){
 
            showProgressDialog();
@@ -304,13 +503,13 @@ public class DCASHMainActivity extends BaseActivity
     public void onResume() {
         super.onResume();
 
-        tvUserEarningBalance.setText(userPref.getUserEarningBalance()+ " BDT");
+//        tvUserEarningBalance.setText(userPref.getUserEarningBalance()+ " BDT");
     }
 
     @Override
     public void onClick(View v) {
 
-        if( v == cardEarnByIvite){
+        /*if( v == cardEarnByIvite){
             Intent in =new Intent(DCASHMainActivity.this,EarnByInvitingActivity.class);
             startActivity(in);
         }
@@ -329,7 +528,7 @@ public class DCASHMainActivity extends BaseActivity
             underConstruction();
         }else if( v == cardEarnMore){
             underConstruction();
-        }
+        }*/
 
     }
 }

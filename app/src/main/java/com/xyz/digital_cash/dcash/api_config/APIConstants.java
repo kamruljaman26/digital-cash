@@ -23,6 +23,9 @@ public class APIConstants {
         public static final String VIDEOREWARD = ENDPOINT + URL_SLASH +"rewards"+URL_SLASH+"video";
         public static final String INTERSTIALREWARD = ENDPOINT + URL_SLASH +"rewards"+URL_SLASH+"interstitial";
 
+    }
+    public static class General{
 
+        public static final String BANNERIMAGESLIDE = "https://live.muv.asia/api/v1/clients/app/slider";
     }
 }
