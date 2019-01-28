@@ -70,7 +70,7 @@ public class DigitalCash extends MultiDexApplication {
         this.requestQueue = requestQueue;
     }
 
-    public void setMuvRent(DigitalCash dCash) {
+    public void setDigitalCash(DigitalCash dCash) {
         this.dCash = dCash;
     }
 }
