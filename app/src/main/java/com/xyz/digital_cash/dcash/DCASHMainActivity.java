@@ -84,10 +84,10 @@ public class DCASHMainActivity extends BaseActivity
         setContentView(R.layout.activity_dcashmain);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*initializeView();
-        getProfileInfo();*/
+        /*initializeView();*/
         getDrawerNavigation();
         initializeView();
+        getProfileInfo();
         //getImageBannerSlider();
         getImageBanner();
         getImageBannerSlider();
@@ -114,6 +114,18 @@ public class DCASHMainActivity extends BaseActivity
         mPagerImageSlider =  findViewById(R.id.pager_image_slider_home_page);
         llBannerDots = findViewById(R.id.llBannerDots);
 
+
+        cardIncomeFactory = findViewById(R.id.cvIncomeFactory);
+        cardIncomeFactory.setOnClickListener(this);
+
+        userPref = new UserPref(DCASHMainActivity.this);
+        View headerView = navigationView.getHeaderView(0);
+
+        tvUserNmae = headerView.findViewById(R.id.tvUserName);
+        tvuserEmail = headerView.findViewById(R.id.tvUserEmail);
+        tvUserReferral = headerView.findViewById(R.id.tvUserReferral);
+        tvUserAvailableBalance = headerView.findViewById(R.id.tvUserCurrentBalance);
+        tvUserEarningBalance = headerView.findViewById(R.id.tvUserEarningBalance);
 
     }
 
@@ -288,7 +300,7 @@ public class DCASHMainActivity extends BaseActivity
 
     }
 
-    /*private void getProfileInfo() {
+    private void getProfileInfo() {
 
             StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Auth.USER_PROFILE, new Response.Listener<String>() {
 
@@ -354,7 +366,7 @@ public class DCASHMainActivity extends BaseActivity
 
                             if (stCode == 500) {
 
-                                *//*Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
+                                Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
                                         .setAction("CLOSE", new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
@@ -362,7 +374,7 @@ public class DCASHMainActivity extends BaseActivity
                                             }
                                         })
                                         .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
-                                        .show();*//*
+                                        .show();
                             } else {
                                 LogMe.d("er::", res);
                                 JSONObject obj = new JSONObject(res);
@@ -405,43 +417,6 @@ public class DCASHMainActivity extends BaseActivity
             DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
     }
 
-    private void initializeView() {
-
-        userPref = new UserPref(DCASHMainActivity.this);
-
-        cardEarnByIvite = findViewById(R.id.cardEarnByIvite);
-        cardEarnByIvite.setOnClickListener(this);
-        cardIncomeFactory = findViewById(R.id.cardIncomeFactory);
-        cardIncomeFactory.setOnClickListener(this);
-
-        cardShopEarn = findViewById(R.id.cardShopEarn);
-        cardShopEarn.setOnClickListener(this);
-
-        cardMyShop = findViewById(R.id.cardMyShop);
-        cardMyShop.setOnClickListener(this);
-
-        cardMyNetwork = findViewById(R.id.cardMyNetwork);
-        cardMyNetwork.setOnClickListener(this);
-
-        cardEarningPlan = findViewById(R.id.cardEarningPlan);
-        cardEarningPlan.setOnClickListener(this);
-
-        cardExclusiveOffers = findViewById(R.id.cardExclusiveOffers);
-        cardExclusiveOffers.setOnClickListener(this);
-
-        cardEarnMore = findViewById(R.id.cardEarnMore);
-        cardEarnMore.setOnClickListener(this);
-
-
-        View headerView = navigationView.getHeaderView(0);
-
-        tvUserNmae = headerView.findViewById(R.id.tvUserName);
-        tvuserEmail = headerView.findViewById(R.id.tvUserEmail);
-        tvUserReferral = headerView.findViewById(R.id.tvUserReferral);
-        tvUserAvailableBalance = headerView.findViewById(R.id.tvUserCurrentBalance);
-        tvUserEarningBalance = headerView.findViewById(R.id.tvUserEarningBalance);
-
-    }*/
 
     @Override
     public void onBackPressed() {
@@ -529,6 +504,11 @@ public class DCASHMainActivity extends BaseActivity
         }else if( v == cardEarnMore){
             underConstruction();
         }*/
+
+        if( v == cardIncomeFactory){
+            Intent in =new Intent(DCASHMainActivity.this,IncomeFactory.class);
+            startActivity(in);
+        }
 
     }
 }
