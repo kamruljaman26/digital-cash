@@ -23,8 +23,9 @@ import android.widget.TextView;
 import com.xyz.digital_cash.dcash.R;
 import com.xyz.digital_cash.dcash.cash_out.tab_activities.TabCashOut;
 import com.xyz.digital_cash.dcash.cash_out.tab_activities.TabCashOutHistory;
+import com.xyz.digital_cash.dcash.extras.BaseActivity;
 
-public class CashOutActivity extends AppCompatActivity {
+public class CashOutActivity extends BaseActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -42,7 +43,7 @@ public class CashOutActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cash_out);
 

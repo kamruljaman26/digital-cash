@@ -27,5 +27,7 @@ public class APIConstants {
     public static class General{
 
         public static final String BANNERIMAGESLIDE = "https://live.muv.asia/api/v1/clients/app/slider";
+        public static final String CASHOUT_REQUEST = ENDPOINT+"/cashout/";
+        public static final String SLIDER_LIST = ENDPOINT+"/sliders/";
     }
 }

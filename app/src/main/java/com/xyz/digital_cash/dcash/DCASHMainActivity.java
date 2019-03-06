@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +33,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
 import com.xyz.digital_cash.dcash.banner.BannerSlider;
 import com.xyz.digital_cash.dcash.banner.BannerSliderAdapter;
+import com.xyz.digital_cash.dcash.banner.BannerSliderModel;
 import com.xyz.digital_cash.dcash.cash_out.CashOutActivity;
 import com.xyz.digital_cash.dcash.earn.IncomeFactory;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
@@ -49,6 +51,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import retrofit2.http.GET;
 
 import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER;
 import static com.xyz.digital_cash.dcash.api_config.APIConstants.General.BANNERIMAGESLIDE;
@@ -93,9 +97,11 @@ public class DCASHMainActivity extends BaseActivity
         getImageBannerSlider();
 
 
+        //getBannerSliderFromServer();
 
 
     }
+
     private void getDrawerNavigation(){
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -511,4 +517,115 @@ public class DCASHMainActivity extends BaseActivity
         }
 
     }
+
+    /*private void getBannerSliderFromServer() {
+
+        StringRequest request = new StringRequest(Request.Method.GET, APIConstants.General.SLIDER_LIST, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                LogMe.d("slideS::",response);
+
+                JSONObject object;
+
+                try {
+
+                    object = new JSONObject(response);
+
+                    if(object.has("success") && object.getString("success").contains("true")){
+
+                        JSONArray dataArray = object.getJSONArray("data");
+                        LogMe.d("slideS::",dataArray.toString());
+
+                        for (int i = 0;i<dataArray.length();i++){
+
+
+
+                        }
+
+                    }else {
+
+
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                error.printStackTrace();
+                hideProgressDialog();
+                LogMe.d(TAG,"er::"+ APIConstants.Auth.USER_PROFILE);
+
+                NetworkResponse response = error.networkResponse;
+                if (error instanceof ServerError && response != null) {
+                    try {
+                        String res = new String(response.data,
+                                HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                        // Now you can use any deserializer to make sense of data
+
+                        int stCode = response.statusCode;
+                        View parentLayout = findViewById(android.R.id.content);
+
+                        if (stCode == 500) {
+
+                            Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
+                                    .setAction("CLOSE", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+
+                                        }
+                                    })
+                                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                    .show();
+                        } else {
+                            LogMe.d("er::", res);
+                            JSONObject obj = new JSONObject(res);
+
+                            String errMsg = obj.getString("message");
+
+                            Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
+                                    .setAction("CLOSE", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+
+                                        }
+                                    })
+                                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                    .show();
+                        }
+
+                    } catch (UnsupportedEncodingException e1) {
+                        // Couldn't properly decode data to string
+                        e1.printStackTrace();
+                    } catch (JSONException e2) {
+                        // returned data is not JSONObject?
+                        e2.printStackTrace();
+                    }
+                }
+
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
+                params.put("Accept", "application/json");
+                params.put("Authorization", ACCTOKENSTARTER+userPref.getUserAccessToken());
+
+                LogMe.d(TAG,userPref.getUserAccessToken());
+
+                return params;
+            }
+        };
+        DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
+
+    }*/
+
 }

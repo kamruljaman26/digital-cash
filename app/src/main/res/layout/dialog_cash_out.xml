@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="CASH OUT"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="Amount:"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/etPaymentAmount"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edittext_focused"
+            android:layout_weight="3"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="Payment Method:"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/etPaymentMethod"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edittext_focused"
+            android:layout_weight="3"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="Payment Number:"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/etPaymentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edittext_focused"
+            android:layout_weight="3"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCashOutRequest"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/bg_rounded_button"
+        android:text=" Cashout Request"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
