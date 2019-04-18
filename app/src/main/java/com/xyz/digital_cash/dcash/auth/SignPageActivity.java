@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -35,6 +36,7 @@ import com.xyz.digital_cash.dcash.R;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
 import com.xyz.digital_cash.dcash.extras.LogMe;
+import com.xyz.digital_cash.dcash.privacy_policy.PrivacyPolicyActivity;
 import com.xyz.digital_cash.dcash.shared_pref.UserPref;
 
 import org.json.JSONException;
@@ -56,7 +58,7 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
     private UserPref userPref;
 
     //SignUp Attributes
-    EditText etRUserName,etRUserEmail,etRUserPassword,etRUserMobile,etRUserDOB,etRUserBkash,etRUserReferral;
+    EditText etRUserName,etRUserEmail,etRUserPassword,etRUserMobile,etRUserDOB,etRUserBkash,etRUserReferral,etRUserCity;
     CardView cvSignUpButton;
     Calendar myCalender;
     DatePickerDialog.OnDateSetListener date;
@@ -67,6 +69,8 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
     CardView cvSignInButton;
     private String Name,Pass,City,DOB,Phone,Email,Referral,Bkash;
     View parentLayout;
+
+    TextView tvPPIn, tvPPUp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,6 +106,8 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
         etUserPassword = findViewById(R.id.etUserPassword);
         cvSignInButton = findViewById(R.id.cvSignInButton);
         cvSignInButton.setOnClickListener(this);
+        tvPPIn = findViewById(R.id.tvInPrivacyPolicy);
+        tvPPIn.setOnClickListener(this);
 
         //SignUp Attributes
         etRUserName = findViewById(R.id.etRUserName);
@@ -112,9 +118,12 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
         etRUserDOB.setOnClickListener(this);
         etRUserBkash = findViewById(R.id.etRUserBkash);
         etRUserReferral = findViewById(R.id.etRUserReferral);
+        etRUserCity = findViewById(R.id.etRUserCity);
 
         cvSignUpButton =findViewById(R.id.cvSignUpButton);
         cvSignUpButton.setOnClickListener(this);
+        tvPPUp = findViewById(R.id.tvUpPrivacyPolicy);
+        tvPPUp.setOnClickListener(this);
 
         date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -169,6 +178,14 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
                     .get(Calendar.YEAR), myCalender.get(Calendar.MONTH),
                     myCalender.get(Calendar.DAY_OF_MONTH)).show();
 
+        }else if(v == tvPPIn){
+
+            Intent in = new Intent(SignPageActivity.this, PrivacyPolicyActivity.class);
+            startActivity(in);
+        }else if(v == tvPPUp){
+
+            Intent in = new Intent(SignPageActivity.this, PrivacyPolicyActivity.class);
+            startActivity(in);
         }
     }
 
@@ -201,6 +218,7 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
         DOB = etRUserDOB.getText().toString();
         Bkash = etRUserBkash.getText().toString();
         Referral = etRUserReferral.getText().toString();
+        City =etRUserCity.getText().toString();
 
         if(TextUtils.isEmpty(Name) || TextUtils.isEmpty(Email) || TextUtils.isEmpty(Pass) || TextUtils.isEmpty(Phone) || TextUtils.isEmpty(DOB) || TextUtils.isEmpty(City) || TextUtils.isEmpty(Bkash) || TextUtils.isEmpty(Referral)){
 
@@ -231,6 +249,10 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
             }else if(TextUtils.isEmpty(Referral)){
 
                 etRUserReferral.setError("Please enter your Referral!");
+
+            }else if(TextUtils.isEmpty(City)){
+
+                etRUserCity.setError("Please enter your City!");
 
             }
         }else {
@@ -291,6 +313,7 @@ public class SignPageActivity extends BaseActivity implements View.OnClickListen
                             Intent in =new Intent(SignPageActivity.this, DCASHMainActivity.class);
                             in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(in);
+                            finish();
 
                         }
                     }

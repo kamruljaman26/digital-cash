@@ -33,11 +33,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
 import com.xyz.digital_cash.dcash.banner.BannerSlider;
 import com.xyz.digital_cash.dcash.banner.BannerSliderAdapter;
-import com.xyz.digital_cash.dcash.banner.BannerSliderModel;
 import com.xyz.digital_cash.dcash.cash_out.CashOutActivity;
 import com.xyz.digital_cash.dcash.earn.IncomeFactory;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
 import com.xyz.digital_cash.dcash.extras.LogMe;
+import com.xyz.digital_cash.dcash.privacy_policy.PrivacyPolicyActivity;
 import com.xyz.digital_cash.dcash.profile.UserProfileActivity;
 import com.xyz.digital_cash.dcash.shared_pref.UserPref;
 
@@ -51,8 +51,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import retrofit2.http.GET;
 
 import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER;
 import static com.xyz.digital_cash.dcash.api_config.APIConstants.General.BANNERIMAGESLIDE;
@@ -72,7 +70,8 @@ public class DCASHMainActivity extends BaseActivity
     //Slider for homePage
     private static ViewPager mPagerImageSlider;
     private static int currentBannerSlider = 0;
-    ArrayList<BannerSlider> bannerSliderArrayList = new ArrayList<BannerSlider>();
+    //ArrayList<BannerSlider> bannerSliderArrayList = new ArrayList<BannerSlider>();
+    ArrayList<String> bannerSliderImages = new ArrayList<>();
     private LinearLayout llBannerDots;
     private int dotscount;
     private ImageView[] dots;
@@ -93,12 +92,11 @@ public class DCASHMainActivity extends BaseActivity
         initializeView();
         getProfileInfo();
         //getImageBannerSlider();
-        getImageBanner();
-        getImageBannerSlider();
-
-
+        //getImageBanner();
+        //getImageBannerSlider();
         //getBannerSliderFromServer();
 
+        getSliderBannerIm();
 
     }
 
@@ -135,7 +133,174 @@ public class DCASHMainActivity extends BaseActivity
 
     }
 
-    private void getImageBanner(){
+    private void getSliderBannerIm(){
+
+        StringRequest request = new StringRequest(Request.Method.GET, APIConstants.General.SLIDER_LIST, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                /*bannerSliderArrayList = new ArrayList<BannerSlider>();
+                bannerSliderArrayList.clear();*/
+                progressBarHomePageBannerSlider.setVisibility(View.GONE);
+                bannerSliderImages = new ArrayList<>();
+                //bannerSliderImages.clear();
+                LogMe.d("slideS::",response);
+
+                JSONObject object;
+
+                try {
+
+                    object = new JSONObject(response);
+
+                    if(object.has("success") && object.getString("success").contains("true")){
+
+                        JSONArray dataArray = object.getJSONArray("data");
+                        LogMe.d("slideS::",dataArray.toString());
+                        BannerSlider bannerSlider = new BannerSlider();
+
+                        for (int i = 0;i<dataArray.length();i++){
+
+
+                            JSONObject jObj = dataArray.getJSONObject(i);
+                            Log.d("images::",jObj.getString("image"));
+
+                            bannerSliderImages.add(jObj.getString("image"));
+
+                           /* bannerSlider.setFileName(jObj.getString("image"));
+                            Log.d("images::",bannerSlider.getFileName());
+                            bannerSliderArrayList.add(i,bannerSlider);
+                            Log.d("images::",bannerSliderArrayList.get(i).getFileName());*/
+                        }
+
+
+                        for (int i = 0;i<bannerSliderImages.size();i++){
+
+                            Log.d("b:",bannerSliderImages.get(i)+"---"+i);
+
+                        }
+
+                        mPagerImageSlider.setAdapter(new BannerSliderAdapter(DCASHMainActivity.this, bannerSliderImages));
+
+                        getBannerSliderDots();
+
+
+                        handler = new Handler();
+                        Update = new Runnable() {
+
+                            public void run() {
+                               /* if (currentBannerSlider == bannerSliderArrayList.size()) {
+                                    currentBannerSlider = 0;
+                                }
+                                mPagerImageSlider.setCurrentItem(currentBannerSlider++, true);
+                                handler.postDelayed(this,5000);*/
+
+                                int pos = currentBannerSlider++;
+
+                                if (pos == bannerSliderImages.size()) {
+                                    currentBannerSlider = 0;
+                                }
+
+                                mPagerImageSlider.setCurrentItem(pos);
+
+                            }
+                        };
+
+                        swipeTimer = new Timer();
+                        swipeTimer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+
+                                handler.post(Update);
+
+
+                            }
+                        }, 3000, 3000);
+
+                    }else {
+
+
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                error.printStackTrace();
+                hideProgressDialog();
+                LogMe.d(TAG,"er::"+ APIConstants.Auth.USER_PROFILE);
+
+                NetworkResponse response = error.networkResponse;
+                if (error instanceof ServerError && response != null) {
+                    try {
+                        String res = new String(response.data,
+                                HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                        // Now you can use any deserializer to make sense of data
+
+                        int stCode = response.statusCode;
+                        View parentLayout = findViewById(android.R.id.content);
+
+                        if (stCode == 500) {
+
+                            Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
+                                    .setAction("CLOSE", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+
+                                        }
+                                    })
+                                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                    .show();
+                        } else {
+                            LogMe.d("er::", res);
+                            JSONObject obj = new JSONObject(res);
+
+                            String errMsg = obj.getString("message");
+
+                            Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
+                                    .setAction("CLOSE", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+
+                                        }
+                                    })
+                                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                    .show();
+                        }
+
+                    } catch (UnsupportedEncodingException e1) {
+                        // Couldn't properly decode data to string
+                        e1.printStackTrace();
+                    } catch (JSONException e2) {
+                        // returned data is not JSONObject?
+                        e2.printStackTrace();
+                    }
+                }
+
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
+                params.put("Accept", "application/json");
+                params.put("Authorization", ACCTOKENSTARTER+userPref.getUserAccessToken());
+
+                LogMe.d(TAG,userPref.getUserAccessToken());
+
+                return params;
+            }
+        };
+        DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
+    }
+
+    /*private void getImageBanner(){
 
         BannerSlider bannerSlider = new BannerSlider();
 
@@ -158,10 +323,49 @@ public class DCASHMainActivity extends BaseActivity
             bannerSlider.setContentID("content_id");
 
             bannerSliderArrayList.add(bannerSlider);
-        }
-    }
 
-    private void getImageBannerSlider() {
+        }
+
+
+        mPagerImageSlider.setAdapter(new BannerSliderAdapter(DCASHMainActivity.this, bannerSliderArrayList));
+
+        getBannerSliderDots();
+
+
+        handler = new Handler();
+        Update = new Runnable() {
+
+            public void run() {
+                               *//* if (currentBannerSlider == bannerSliderArrayList.size()) {
+                                    currentBannerSlider = 0;
+                                }
+                                mPagerImageSlider.setCurrentItem(currentBannerSlider++, true);
+                                handler.postDelayed(this,5000);*//*
+
+                int pos = currentBannerSlider++;
+
+                if (pos == 5) {
+                    currentBannerSlider = 0;
+                }
+
+                mPagerImageSlider.setCurrentItem(pos);
+
+            }
+        };
+
+        swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                handler.post(Update);
+
+
+            }
+        }, 2000, 2000);
+    }*/
+
+    /*private void getImageBannerSlider() {
         StringRequest request = new StringRequest(Request.Method.GET, BANNERIMAGESLIDE, new Response.Listener<String>() {
 
             @Override
@@ -205,11 +409,11 @@ public class DCASHMainActivity extends BaseActivity
                         Update = new Runnable() {
 
                             public void run() {
-                               /* if (currentBannerSlider == bannerSliderArrayList.size()) {
+                               *//* if (currentBannerSlider == bannerSliderArrayList.size()) {
                                     currentBannerSlider = 0;
                                 }
                                 mPagerImageSlider.setCurrentItem(currentBannerSlider++, true);
-                                handler.postDelayed(this,5000);*/
+                                handler.postDelayed(this,5000);*//*
 
                                 int pos = currentBannerSlider++;
                                 LogMe.d("current::", pos + "--" + bannerArray.length());
@@ -260,10 +464,10 @@ public class DCASHMainActivity extends BaseActivity
         };
 
         DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
-    }
+    }*/
 
     private void getBannerSliderDots() {
-        dotscount = bannerSliderArrayList.size();
+        dotscount = bannerSliderImages.size();
         dots = new ImageView[dotscount];
 
         for (int i = 0; i < dotscount; i++) {
@@ -441,20 +645,6 @@ public class DCASHMainActivity extends BaseActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -472,6 +662,9 @@ public class DCASHMainActivity extends BaseActivity
            startActivity(in);
        }else if(id == R.id.nav_cashout){
            Intent in =new Intent(this,CashOutActivity.class);
+           startActivity(in);
+       }else if(id == R.id.nav_privacy_policy){
+           Intent in =new Intent(this, PrivacyPolicyActivity.class);
            startActivity(in);
        }
 

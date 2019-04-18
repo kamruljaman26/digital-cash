@@ -234,6 +234,18 @@
 
         </android.support.v7.widget.CardView>
 
+        <TextView
+            android:layout_marginTop="16dp"
+            android:id="@+id/tvInPrivacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:text="Tap to read privacy policy of digital cash"/>
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -248,14 +260,14 @@
         <RelativeLayout
             android:id="@+id/rlSignUp"
             android:layout_width="296dp"
-            android:layout_height="348dp"
+            android:layout_height="376dp"
             android:layout_gravity="center|top"
             android:layout_marginTop="28dp">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cdSignUpView"
                 android:layout_width="276dp"
-                android:layout_height="312dp"
+                android:layout_height="348dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="16dp"
@@ -405,6 +417,31 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginBottom="8dp"
+                            app:srcCompat="@drawable/ic_home_24dp"
+                            tools:ignore="VectorDrawableCompat" />
+
+
+                        <EditText
+                            android:id="@+id/etRUserCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:hint="City"
+                            android:paddingLeft="12dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|bottom"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginBottom="8dp"
                             app:srcCompat="@drawable/ic_bkas_32dp"
                             tools:ignore="VectorDrawableCompat" />
 
@@ -453,9 +490,9 @@
                 android:id="@+id/cvSignUpButton"
                 android:layout_width="148dp"
                 android:layout_height="36dp"
+
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="@color/muv_purple"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="16dp">
@@ -478,5 +515,20 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/tvUpPrivacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:text="Tap to read privacy policy of digital cash"/>
+
+
     </LinearLayout>
+
+
+
 </LinearLayout>

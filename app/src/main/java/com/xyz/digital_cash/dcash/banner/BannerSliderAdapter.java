@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.xyz.digital_cash.dcash.DCASHMainActivity;
 import com.xyz.digital_cash.dcash.R;
@@ -27,7 +28,8 @@ public class BannerSliderAdapter extends PagerAdapter {
 
     private String TAG = BannerSliderAdapter.class.getSimpleName();
     FragmentManager fragmentManager;
-    private ArrayList<BannerSlider> bannerSliderArrayList = new ArrayList<BannerSlider>();
+    //private ArrayList<BannerSlider> bannerSliderArrayList = new ArrayList<BannerSlider>();
+    private ArrayList<String> bannerSliderImages = new ArrayList<String>();
     private LayoutInflater inflater;
     private Context context;
 
@@ -42,9 +44,9 @@ public class BannerSliderAdapter extends PagerAdapter {
     private String MUV_STORE = "9";
     private AlertDialog dialog;
 
-    public BannerSliderAdapter(Context context, ArrayList<BannerSlider> bannerSliderArrayList) {
+    public BannerSliderAdapter(Context context, ArrayList<String> bannerSliderImages) {
         this.context = context;
-        this.bannerSliderArrayList = bannerSliderArrayList;
+        this.bannerSliderImages = bannerSliderImages;
         inflater = LayoutInflater.from(context);
     }
 
@@ -55,7 +57,7 @@ public class BannerSliderAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return bannerSliderArrayList.size();
+        return bannerSliderImages.size();
     }
 
     @Override
@@ -64,13 +66,15 @@ public class BannerSliderAdapter extends PagerAdapter {
 
         fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
 
-        final BannerSlider bannerSlider = bannerSliderArrayList.get(position);
-        Log.d(TAG, " imageLink::" + bannerSlider.getFileName());
+        //final BannerSlider bannerSlider = bannerSliderArrayList.get(position);
+        Log.d(TAG, " imageLink:: "+position + bannerSliderImages.get(position));
 
 
         ImageView myImage = (ImageView) myBannerLayout.findViewById(R.id.imgViewHomePageSlider);
 
-        try {
+        Glide.with(context).load(bannerSliderImages.get(position)).into(myImage);
+
+       /* try {
 
             if(position == 0){
                 Picasso.with(context).load(R.drawable.test1).into(myImage);
@@ -87,7 +91,7 @@ public class BannerSliderAdapter extends PagerAdapter {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
         view.addView(myBannerLayout, 0);
         return myBannerLayout;

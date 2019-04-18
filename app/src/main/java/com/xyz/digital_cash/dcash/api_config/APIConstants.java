@@ -9,6 +9,8 @@ public class APIConstants {
     private static final String ENDPOINT = API_DOMAIN + URL_SLASH + "api"+URL_SLASH+"v1";
     public static String ACCTOKENSTARTER = "Bearer ";
 
+    public static String PRIVACY_POLICY = "https://www.digital-cash.xyz/privacy";
+
     public static class Auth {
 
         public static final String LOGIN = ENDPOINT + URL_SLASH +"auth"+URL_SLASH+"login";

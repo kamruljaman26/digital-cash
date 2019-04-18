@@ -22,6 +22,7 @@ public class LoadingActivity extends AppCompatActivity {
                 // Do something after 3s = 3000ms
                 Intent in =new Intent(LoadingActivity.this,StartEnterActivity.class);
                 startActivity(in);
+                finish();
             }
         }, 4000);
     }
