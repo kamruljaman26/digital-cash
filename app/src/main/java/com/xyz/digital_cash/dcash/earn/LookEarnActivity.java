@@ -232,6 +232,21 @@ public class LookEarnActivity extends BaseActivity {
 
                 interstitialFacebookAd.setAdListener(new InterstitialAdExtendedListener() {
                     @Override
+                    public void onRewardedAdCompleted() {
+
+                    }
+
+                    @Override
+                    public void onRewardedAdServerSucceeded() {
+
+                    }
+
+                    @Override
+                    public void onRewardedAdServerFailed() {
+
+                    }
+
+                    @Override
                     public void onInterstitialActivityDestroyed() {
 
                     }
