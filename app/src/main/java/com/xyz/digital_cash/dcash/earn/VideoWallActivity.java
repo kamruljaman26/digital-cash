@@ -1,37 +1,31 @@
 package com.xyz.digital_cash.dcash.earn;
 
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.adcolony.sdk.AdColony;
 import com.adcolony.sdk.AdColonyAdOptions;
-import com.adcolony.sdk.AdColonyAppOptions;
 import com.adcolony.sdk.AdColonyInterstitial;
 import com.adcolony.sdk.AdColonyInterstitialListener;
 import com.adcolony.sdk.AdColonyReward;
 import com.adcolony.sdk.AdColonyRewardListener;
-import com.adcolony.sdk.AdColonyUserMetadata;
 import com.adcolony.sdk.AdColonyZone;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
@@ -48,8 +42,6 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
-import com.xyz.digital_cash.dcash.auth.LoginActivity;
-import com.xyz.digital_cash.dcash.auth.RegisterActivity;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
 import com.xyz.digital_cash.dcash.extras.LogMe;
 import com.xyz.digital_cash.dcash.shared_pref.UserPref;
@@ -60,8 +52,6 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER;
 

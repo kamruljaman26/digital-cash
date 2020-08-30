@@ -3,7 +3,7 @@ package com.xyz.digital_cash.dcash.profile;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -200,7 +200,7 @@ public class UserProfileActivity extends BaseActivity  implements View.OnClickLi
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
 
-                Map<String, String> params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/json");
                 params.put("Authorization", ACCTOKENSTARTER+userPref.getUserAccessToken());
 

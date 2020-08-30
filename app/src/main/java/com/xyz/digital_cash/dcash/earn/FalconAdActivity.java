@@ -3,13 +3,10 @@ package com.xyz.digital_cash.dcash.earn;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.noqoush.adfalcon.android.sdk.ADFAd;
 import com.noqoush.adfalcon.android.sdk.ADFInterstitial;
@@ -17,7 +14,6 @@ import com.noqoush.adfalcon.android.sdk.ADFListener;
 import com.noqoush.adfalcon.android.sdk.constant.ADFErrorCode;
 import com.xyz.digital_cash.dcash.R;
 import com.xyz.digital_cash.dcash.extras.BaseActivity;
-import com.xyz.digital_cash.dcash.extras.LogMe;
 
 public class FalconAdActivity extends BaseActivity implements ADFListener {
 

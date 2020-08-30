@@ -1,26 +1,20 @@
 package com.xyz.digital_cash.dcash.banner;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
-import com.xyz.digital_cash.dcash.DCASHMainActivity;
 import com.xyz.digital_cash.dcash.R;
-import com.xyz.digital_cash.dcash.extras.LogMe;
 
 import java.util.ArrayList;
 

@@ -10,8 +10,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.widget.Toast;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
@@ -24,7 +24,6 @@ import com.xyz.digital_cash.dcash.DigitalCash;
 import com.xyz.digital_cash.dcash.R;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
 import com.xyz.digital_cash.dcash.auth.LoginActivity;
-import com.xyz.digital_cash.dcash.earn.VideoWallActivity;
 import com.xyz.digital_cash.dcash.shared_pref.UserPref;
 
 import org.json.JSONException;

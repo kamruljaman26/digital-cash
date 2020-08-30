@@ -1,15 +1,13 @@
 package com.xyz.digital_cash.dcash.earn;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -231,6 +229,21 @@ public class LookEarnActivity extends BaseActivity {
                 showProgressDialog();
 
                 interstitialFacebookAd.setAdListener(new InterstitialAdExtendedListener() {
+                    @Override
+                    public void onRewardedAdCompleted() {
+
+                    }
+
+                    @Override
+                    public void onRewardedAdServerSucceeded() {
+
+                    }
+
+                    @Override
+                    public void onRewardedAdServerFailed() {
+
+                    }
+
                     @Override
                     public void onInterstitialActivityDestroyed() {
 

@@ -1,33 +1,21 @@
 package com.xyz.digital_cash.dcash.earn;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.flurry.android.ads.FlurryAdErrorType;
 import com.flurry.android.ads.FlurryAdInterstitial;
 import com.flurry.android.ads.FlurryAdInterstitialListener;
-import com.flurry.android.ads.FlurryAdTargeting;
 import com.xyz.digital_cash.dcash.R;
 import com.xyz.digital_cash.dcash.extras.LogMe;
-
-import java.util.Arrays;
 
 public class FlurryMainActivity extends AppCompatActivity {
 

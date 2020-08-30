@@ -23,7 +23,7 @@
     </LinearLayout>
 
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardViewPoint1Banner"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -80,7 +80,7 @@
         </LinearLayout>
 
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnLogi1n"

@@ -1,6 +1,6 @@
 package com.xyz.digital_cash.dcash.shop;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xyz.digital_cash.dcash.R;
