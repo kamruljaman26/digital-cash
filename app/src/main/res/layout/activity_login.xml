@@ -97,7 +97,7 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@+id/btnLogin"
+        android:layout_below="@+id/btnLogi1n"
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp">
 
@@ -117,7 +117,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@drawable/button_selector"
+            android:background="@drawable/bg_rounded_green"
             android:text="Reset Password" />
     </TableRow>
 

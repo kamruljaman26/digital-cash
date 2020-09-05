@@ -15,7 +15,7 @@
             android:id="@+id/toolbar_video_wall"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/gradient_toolbar"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TableRow
@@ -68,8 +68,6 @@
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                             android:textColor="@color/green"
                             android:textStyle="bold" />
-
-
                     </RelativeLayout>
 
                 </RelativeLayout>

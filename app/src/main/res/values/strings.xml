@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DIGITAL CASH</string>
+    <string name="app_name">DCL BD</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -7,23 +7,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="loading">Loading...</string>
-    <string name="title_activity_user_profile">UserProfileActivity</string>
-
 
     <!--ADMOB STRINGS-->
     <string name="ADMOB_APP_ID">ca-app-pub-7470896348181474~3905856817</string>
     <string name="ADMOB_UNIT_ID">ca-app-pub-7470896348181474/2918834935</string>
-    <string name="title_activity_income_factory">IncomeFactory</string>
-    <string name="title_activity_video_wall">VideoWallActivity</string>
-    <string name="title_activity_fbwall">FBWallActivity</string>
-    <string name="title_activity_look_earn">LookEarnActivity</string>
-    <string name="title_activity_flurry_main">FlurryMainActivity</string>
-    <string name="title_activity_flurry_interstitial_on_exit">FlurryInterstitialOnExitActivity
-    </string>
-    <string name="title_activity_vungle_new">VungleNewActivity</string>
-    <string name="title_activity_falcon_ad">FalconAdActivity</string>
-    <string name="title_activity_sign_page">SignPageActivity</string>
-    <string name="title_activity_cash_out">CashOutActivity</string>
+
+    <!-- Additional Texts -->
     <string name="tab_text_1">New Request</string>
     <string name="tab_text_2">All Request</string>
     <string name="section_format">Hello World from section: %1$d</string>
@@ -38,6 +27,21 @@
     <string name="sure_cash">SureCash</string>
     <string name="surecash_detail">Get Money through your SureCash</string>
     <string name="t_cash">T Cash</string>
+    <string name="cash_out_title">Cash Out</string>
     <string name="tcash_detail">Get your money through your TCash account</string>
+
+    <!--  All Activity Names  -->
+    <string name="title_activity_income_factory">Income Factory</string>
+    <string name="title_activity_video_wall">VideoWallActivity</string>
+    <string name="title_activity_fbwall">FBWallActivity</string>
+    <string name="title_activity_look_earn">LookEarnActivity</string>
+    <string name="title_activity_flurry_main">FlurryMainActivity</string>
+    <string name="title_activity_flurry_interstitial_on_exit">FlurryInterstitialOnExitActivity</string>
+    <string name="title_activity_vungle_new">VungleNewActivity</string>
+    <string name="title_activity_falcon_ad">FalconAdActivity</string>
+    <string name="title_activity_sign_page">SignPageActivity</string>
+    <string name="title_activity_cash_out">CashOutActivity</string>
+    <string name="title_activity_user_profile">User Profile</string>
     <string name="title_activity_privacy_policy">Privacy Policy</string>
+    <string name="look_earn"><![CDATA[Look & Earn]]></string>
 </resources>

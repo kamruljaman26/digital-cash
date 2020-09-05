@@ -14,41 +14,7 @@
             android:icon="@drawable/ic_cashout_black_24dp"
             android:title="Cashout" />
 
-        <item
-            android:id="@+id/nav_dashboard"
-            android:icon="@drawable/ic_dashboard_black_24dp"
-            android:title="Dashboard" />
-
-        <item
-            android:id="@+id/nav_advertisement"
-            android:icon="@drawable/ic_advertise_black_24dp"
-            android:title="Advertisement" />
     </group>
-
-    <item android:title="Own">
-        <menu>
-            <item
-                android:id="@+id/nav_browse"
-                android:icon="@drawable/ic_browse_black_24dp"
-                android:title="Browse Shop" />
-            <item
-                android:id="@+id/nav_create"
-                android:icon="@drawable/ic_create_black_24dp"
-                android:title="Create Shop" />
-            <item
-                android:id="@+id/nav_myshop"
-                android:icon="@drawable/ic_own_shp_black_24dp"
-                android:title="My Shop" />
-            <item
-                android:id="@+id/nav_mycart"
-                android:icon="@drawable/ic_shopping_cart_black_24dp"
-                android:title="my Cart" />
-            <item
-                android:id="@+id/nav_transaction"
-                android:icon="@drawable/ic_transactions_black_24dp"
-                android:title="Transaction" />
-        </menu>
-    </item>
 
 
     <item android:title="Profile">

@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/appbar_padding_top"
+        android:background="@drawable/gradient_toolbar"
         android:theme="@style/AppTheme.NoActionBar">
 
         <androidx.appcompat.widget.Toolbar
@@ -20,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
+            android:background="#00000000"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="@string/app_name">
@@ -29,6 +30,9 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
+            app:tabTextColor="@color/light_grey"
+            app:tabSelectedTextColor="@color/white"
+            app:tabIndicatorColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

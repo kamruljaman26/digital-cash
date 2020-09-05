@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#770ECF</color>
-    <color name="colorPrimaryDark">#510393</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#6A22F1</color>
+    <color name="colorPrimaryDark">#702AF4</color>
+    <color name="colorAccent">#C126FC</color>
     <color name="white">#ffffff</color>
     <color name="muv_purple">#8426D3</color>
+
+    <!-- Gradient Colors -->
+    <color name="startGradientColor">#6A22F1</color>
+    <color name="endGradientColor">#C126FC</color>
 
 
     <color name="ash">#434343</color>
@@ -22,6 +26,7 @@
     <color name="red">#e53935</color>
     <color name="bg_rounded_purple">#AB47BC</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="white_transparent">#77FFFFFF</color>
 
     <color name="initButton">#1db17a</color>
     <color name="initButtonPressed">#72f9c7</color>

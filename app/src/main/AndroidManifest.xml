@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.xyz.digital_cash.dcash">
+    package="com.xyz.dcl.bangladesh">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".DigitalCash"
-        android:allowBackup="true"
+        android:name="com.xyz.dcl.bangladesh.DigitalCash"
         android:allowClearUserData="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,15 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:vmSafeMode="false"
-        tools:replace="android:icon,android:hardwareAccelerated">
+        tools:replace="android:icon,android:hardwareAccelerated"
+        tools:ignore="AllowBackup">
         <activity
-            android:name=".privacy_policy.PrivacyPolicyActivity"
+            android:name="com.xyz.dcl.bangladesh.privacy_policy.PrivacyPolicyActivity"
             android:label="@string/title_activity_privacy_policy"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".LoadingActivity"
+            android:name="com.xyz.dcl.bangladesh.LoadingActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -36,30 +35,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DCASHMainActivity"
+            android:name="com.xyz.dcl.bangladesh.DCASHMainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".auth.PaswwordResetActivity"
+            android:name="com.xyz.dcl.bangladesh.auth.PaswwordResetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".auth.RegisterActivity"
+            android:name="com.xyz.dcl.bangladesh.auth.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EarnByInvitingActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MyNetworkActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".shop.AddShopActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".profile.UserProfileActivity"
+            android:name="com.xyz.dcl.bangladesh.profile.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".earn.IncomeFactory"
+            android:name="com.xyz.dcl.bangladesh.earn.IncomeFactory"
             android:label="@string/title_activity_income_factory"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" /> <!-- Sample TEST AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
@@ -70,15 +60,15 @@
             android:value="ca-app-pub-8456560515447750~2322879071" />
 
         <activity
-            android:name=".earn.VideoWallActivity"
+            android:name="com.xyz.dcl.bangladesh.earn.VideoWallActivity"
             android:label="@string/title_activity_video_wall"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".earn.FBWallActivity"
+            android:name="com.xyz.dcl.bangladesh.earn.FBWallActivity"
             android:label="@string/title_activity_fbwall"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".earn.LookEarnActivity"
+            android:name="com.xyz.dcl.bangladesh.earn.LookEarnActivity"
             android:label="@string/title_activity_look_earn"
             android:theme="@style/AppTheme" />
         <activity
@@ -104,19 +94,19 @@
             android:name="com.facebook.ads.AudienceNetworkActivity"
             android:hardwareAccelerated="true" />
         <activity
-            android:name=".earn.FlurryMainActivity"
+            android:name="com.xyz.dcl.bangladesh.earn.FlurryMainActivity"
             android:label="@string/title_activity_flurry_main"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".earn.FlurryInterstitialOnExitActivity"
+            android:name="com.xyz.dcl.bangladesh.earn.FlurryInterstitialOnExitActivity"
             android:label="@string/title_activity_flurry_interstitial_on_exit"
             android:theme="@style/AppTheme" />
+<!--        <activity-->
+<!--            android:name=".earn.VungleNewActivity"-->
+<!--            android:label="@string/title_activity_vungle_new"-->
+<!--            android:theme="@style/AppTheme" />-->
         <activity
-            android:name=".earn.VungleNewActivity"
-            android:label="@string/title_activity_vungle_new"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".earn.FalconAdActivity"
+            android:name="com.xyz.dcl.bangladesh.earn.FalconAdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|uiMode|screenLayout|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_falcon_ad"
@@ -125,20 +115,21 @@
             android:name="com.my.target.common.MyTargetActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <activity
-            android:name=".auth.LoginActivity"
+            android:name="com.xyz.dcl.bangladesh.auth.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".auth.StartEnterActivity"
+            android:name="com.xyz.dcl.bangladesh.auth.StartEnterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".auth.SignPageActivity"
+            android:name="com.xyz.dcl.bangladesh.auth.SignPageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".cash_out.CashOutActivity"
+            android:name="com.xyz.dcl.bangladesh.cash_out.CashOutActivity"
             android:label="@string/title_activity_cash_out"
             android:theme="@style/AppTheme"
+            android:parentActivityName="com.xyz.dcl.bangladesh.DCASHMainActivity"
             android:screenOrientation="portrait"/>
     </application>
 

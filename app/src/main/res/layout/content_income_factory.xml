@@ -10,118 +10,129 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:padding="12dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/ivVideoWall"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="16dp"
-                app:cardMaxElevation="8dp">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
 
-                <ImageView
-                    android:id="@+id/ivVideoWall"
+                <LinearLayout
+                    android:padding="8dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/videowall" />
+                    android:layout_height="84dp"
+                    android:orientation="horizontal"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="8dp"
+                            android:text="Video Well"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="8dp"
+                            android:text="Watch video and earn money!"
+                            android:textSize="14dp"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/videowall" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/ivLookandEarn"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="16dp"
-                app:cardMaxElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/ivLookandEarn"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+                <LinearLayout
+                    android:padding="8dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/lookandearn" />
+                    android:layout_height="84dp"
+                    android:orientation="horizontal"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="8dp"
+                            android:text="@string/look_earn"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="8dp"
+                            android:text="Watch video and earn money!"
+                            android:textSize="14dp"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/lookandearn" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="16dp"
-                app:cardMaxElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/ivFBWall"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/fbwall" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="16dp"
-                app:cardMaxElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/ivYoutubeWall"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/youtubewall" />
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardMaxElevation="8dp">
-
-                <ImageView
-                    android:id="@+id/ivOfferWall"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/offerwall" />
-
-            </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
 

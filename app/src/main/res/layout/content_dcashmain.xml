@@ -11,7 +11,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,10 +25,13 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="16dp"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
 
                 <RelativeLayout
                     android:id="@+id/rl_image_slider"
@@ -66,21 +70,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="12dp">
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="8dp"
+                >
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:orientation="horizontal"
                         android:focusable="true"
+                        android:padding="8dp"
                         android:focusableInTouchMode="true">
 
                         <LinearLayout
@@ -112,7 +126,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="5"
-                            android:padding="16dp"
+                            android:padding="12dp"
                             app:srcCompat="@drawable/icon1"/>
 
                     </LinearLayout>
@@ -124,15 +138,22 @@
                     android:id="@+id/cvIncomeFactory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:focusable="true"
+                        android:padding="8dp"
                         android:focusableInTouchMode="true"
                         android:orientation="horizontal">
 
@@ -165,7 +186,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="5"
-                            android:padding="16dp"
+                            android:padding="10dp"
                             app:srcCompat="@drawable/icon2" />
 
                     </LinearLayout>
@@ -176,12 +197,18 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
 
                     <LinearLayout
+                        android:padding="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="84dp"
                         android:orientation="horizontal"
@@ -217,328 +244,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="5"
-                            android:padding="16dp"
+                            android:padding="10dp"
                             app:srcCompat="@drawable/icon3" />
 
                     </LinearLayout>
 
 
                 </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="8dp"
-                                android:text="My Shop"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:paddingLeft="8dp"
-                                android:text="Earn money by inviting your friends signup to Digital cash!"
-                                android:textSize="10dp"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:padding="16dp"
-                            app:srcCompat="@drawable/icon4" />
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="8dp"
-                                android:text="My Network"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:paddingLeft="8dp"
-                                android:text="Earn money by inviting your friends signup to Digital cash!"
-                                android:textSize="10dp"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:padding="16dp"
-                            app:srcCompat="@drawable/icon5" />
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="8dp"
-                                android:text="Earning plan"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:paddingLeft="8dp"
-                                android:text="Earn money by inviting your friends signup to Digital cash!"
-                                android:textSize="10dp"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:padding="16dp"
-                            app:srcCompat="@drawable/icon6" />
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="8dp"
-                                android:text="Exclusive Offers"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:paddingLeft="8dp"
-                                android:text="Earn money by inviting your friends signup to Digital cash!"
-                                android:textSize="10dp"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:padding="16dp"
-                            app:srcCompat="@drawable/icon7" />
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="8dp"
-                                android:text="Other Shop"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:paddingLeft="8dp"
-                                android:text="Earn money by inviting your friends signup to Digital cash!"
-                                android:textSize="10dp"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:padding="16dp"
-                            app:srcCompat="@drawable/icon4" />
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:orientation="horizontal"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="8dp"
-                                android:text="Earn More"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:paddingLeft="8dp"
-                                android:text="Earn money by inviting your friends signup to Digital cash!"
-                                android:textSize="10dp"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:padding="16dp"
-                            app:srcCompat="@drawable/icon8" />
-
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
-
 
             </LinearLayout>
 

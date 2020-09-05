@@ -5,7 +5,7 @@
     android:id="@+id/rlSignPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sign_bg"
+    android:background="@drawable/gradient_toolbar_revart"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".auth.SignPageActivity"
     android:orientation="vertical"
@@ -21,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="DIGITAL CASH"
+            android:text="@string/app_name"
+            android:textSize="32sp"
             android:gravity="center"
             android:textStyle="bold"/>
 
@@ -30,20 +31,16 @@
     <LinearLayout
         android:id="@+id/llSelection"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:paddingBottom="20dp">
+        >
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
+            app:cardElevation="0dp"
             app:cardBackgroundColor="@color/transparent"
-            app:cardMaxElevation="12dp"
-            app:cardCornerRadius="12dp">
-
-
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -57,7 +54,6 @@
                     android:gravity="center|bottom"
                     android:paddingBottom="8dp"
                     android:text="Sign In"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
@@ -70,8 +66,7 @@
                     android:gravity="center|bottom"
                     android:paddingBottom="8dp"
                     android:text="Sign Up"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textColor="@color/ash"
+                    android:textColor="@color/white_transparent"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -91,15 +86,17 @@
         android:visibility="visible">
 
         <RelativeLayout
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:id="@+id/rlSignIn"
-            android:layout_width="332dp"
-            android:layout_height="244dp"
+            android:layout_width="match_parent"
+            android:layout_height="195dp"
             android:layout_gravity="center|top"
             android:layout_marginTop="44dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdView"
-                android:layout_width="320dp"
+                android:layout_width="match_parent"
                 android:layout_height="168dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
@@ -170,18 +167,23 @@
 
             </androidx.cardview.widget.CardView>
 
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvSignInButton"
                 android:layout_width="148dp"
                 android:layout_height="36dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="52dp"
                 app:cardBackgroundColor="@color/muv_purple"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="16dp">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -195,14 +197,12 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
-        </RelativeLayout>
-
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:textColor="@color/light_grey"
             android:text="Don't have an Account? Don't Worry!"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -250,6 +250,8 @@
 
     <LinearLayout
         android:id="@+id/llSignUp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/llSelection"
@@ -259,14 +261,14 @@
 
         <RelativeLayout
             android:id="@+id/rlSignUp"
-            android:layout_width="296dp"
+            android:layout_width="match_parent"
             android:layout_height="376dp"
             android:layout_gravity="center|top"
-            android:layout_marginTop="28dp">
+            android:layout_marginTop="20dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdSignUpView"
-                android:layout_width="276dp"
+                android:layout_width="match_parent"
                 android:layout_height="348dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
@@ -486,11 +488,16 @@
 
             </androidx.cardview.widget.CardView>
 
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvSignUpButton"
                 android:layout_width="148dp"
                 android:layout_height="36dp"
-
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/muv_purple"
@@ -511,9 +518,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_marginTop="20dp"

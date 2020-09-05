@@ -13,17 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="16dp"
         android:gravity="center_horizontal">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="204dp"
+            android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="76dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
-
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
             <Button
                 android:id="@+id/btnVideoLoadAgain"
@@ -31,18 +31,19 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_semi_rounded_with_purple_stroke"
                 android:text="Show Admob Ad"
+                android:textColor="@color/ash"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="204dp"
+            android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
 
             <Button
@@ -51,18 +52,19 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_semi_rounded_with_purple_stroke"
                 android:text="Show FB Audiance Ad"
+                android:textColor="@color/ash"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="204dp"
+            android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
 
             <Button
@@ -71,18 +73,19 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_semi_rounded_with_purple_stroke"
                 android:text="Show AdColony Ad"
+                android:textColor="@color/ash"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="204dp"
+            android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
 
             <Button
@@ -91,6 +94,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_semi_rounded_with_purple_stroke"
                 android:text="Show AppLovin Ad"
+                android:textColor="@color/ash"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         </androidx.cardview.widget.CardView>
